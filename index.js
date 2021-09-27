@@ -1,4 +1,6 @@
-const express = require('express');
+const express = require('express'),
+      morgan = require('morgan');
+
 const app = express();
 
 let top10Movies = [
@@ -43,10 +45,6 @@ app.get('/', (req, res) => {
 });
 
 app.use(express.static('public'));
-
-// app.get('/documentation', (req, res) => {
-//     res.sendFile('public/documentation.html', { root: __dirname });
-// });
 
 app.listen(7070, () => {
     console.log('Your app is listening on a port 7070.')
