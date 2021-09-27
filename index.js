@@ -35,7 +35,7 @@ let top10Movies = [
 ];
 
 app.get('/movies', (req, res) => {
-    res.jsnon(top10Movies);
+    res.json(top10Movies);
 });
 
 app.get('/', (req, res) => {
