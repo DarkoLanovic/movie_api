@@ -39,7 +39,7 @@ app.get('/movies', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Welvome to the movie world!')
+    res.send('Welcome to the movie fan page!')
 });
 
 app.listen(7070, () => {
