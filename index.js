@@ -3,6 +3,8 @@ const express = require('express'),
 
 const app = express();
 
+app.use(morgan('common'));
+
 let top10Movies = [
     {
         title: 'Amadeus'
