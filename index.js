@@ -47,6 +47,7 @@ app.use('/documentation', express.static('public'));
 // app.get('/documentation', (req, res) => {
 //     res.sendFile('public/documentation.html', { root: __dirname });
 // });
+
 app.listen(7070, () => {
     console.log('Your app is listening on a port 7070.')
 })
