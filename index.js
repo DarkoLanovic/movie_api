@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the movie fan page!')
 });
 
-app.use('/documentation.html', express.static('public'));
+app.use(express.static('public'));
 
 // app.get('/documentation', (req, res) => {
 //     res.sendFile('public/documentation.html', { root: __dirname });
