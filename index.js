@@ -42,6 +42,8 @@ app.get('/', (req, res) => {
     res.send('Welcome to the movie fan page!')
 });
 
+app.use('/documentation', express.static('public'));
+
 app.listen(7070, () => {
     console.log('Your app is listening on a port 7070.')
 })
