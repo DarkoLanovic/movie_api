@@ -37,3 +37,11 @@ let top10Movies = [
 app.get('/movies', (req, res) => {
     res.jsnon(top10Movies);
 });
+
+app.get('/', (req, res) => {
+    res.send('Welvome to the movie world!')
+});
+
+app.listen(7070, () => {
+    console.log('Your app is listening on a port 7070.')
+})
