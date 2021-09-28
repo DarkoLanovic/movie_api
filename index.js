@@ -48,6 +48,11 @@ app.get('/', (req, res) => {
 
 app.use(express.static('public'));
 
+app.use((err, req, res, next) => {
+    console.log(err.stack);
+    res.status(500).send('Something is wrong!')
+});
+
 app.listen(7070, () => {
     console.log('Your app is listening on a port 7070.')
 })
