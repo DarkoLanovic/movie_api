@@ -5,7 +5,104 @@
         <title>DOCUMENTATION</title>
     </head>
     <body>
+       
         <h1>Documentation page</h1>
-        <p>Documentation pending... <br>Please, try again next time!</p>
+        <br>
+            <table>
+              <thead>
+                <tr>
+                  <th>Business Logic</th>
+                  <th>URL</th>
+                  <th>HTTP Method</th>
+                  <th>Request body data format</th>
+                  <th>Response body data format</th>
+                </tr>
+              <thead>
+              <tbody>
+                <tr>
+                  <td>Show list of ALL movies</td>
+                  <td>/movies</td>
+                  <td>GET</td>
+                  <td>_</td>
+                  <td> <br> A JASON object holding data about all the movies</td>
+                </tr>
+                <tr>
+                  <td> Show data about a single movie by title</td> <br>
+                  <td>/movies/[Name]</td>
+                  <td>GET</td>
+                  <td>_</td>
+                  <td>A JASON object holding data about a single movie, <br> contains movie ID, name, year, genre, <br> director, description and image 
+                        <br>
+                        { <br>
+                            id: 1,<br>
+                            name: "Amadeus",<br>
+                            year: "1984"<br>
+                            genre: "Drama/History",<br>
+                            director: "Miloš Forman",<br>
+                            description: "Text",<br>
+                            image: <br>                        
+                        }
+                  </td>
+                </tr>
+                   <tr>
+                  <td> Show movies by genre</td>
+                  <td>/movies/[Name]/[Genre]</td>
+                  <td>GET</td>
+                  <td>_</td>
+                  <td>A JASON object holding data about movie genre</td>
+                </tr>
+                <tr>
+                   <td>Show data about a director by name</td>
+                   <td>/movies/[Name]/[Director]</td>
+                   <td>GET</td>
+                   <td>_</td>
+                   <td>A JASON object holding data about a director by name,<br>contain bio, birth year, death year </td>
+                </tr>
+                <tr>
+                    <td>Allow new users to register</td>
+                    <td>/user</td>
+                    <td>PUT</td>
+                    <td>A JASON object holding data about user,<br>containing: name, password, email
+                        <br>
+                        { <br>
+                            name: "STRING",<br>
+                            password: "SRTING",<br>
+                            email: "STRING"<br>
+                        }
+                    </td>
+                    <td>A text message indicating whether the user was successfully added</td>
+                  </tr>
+                  <tr>
+                    <td>Allow users to update their user info</td>
+                    <td>/user/[Name]</td>
+                    <td>PUT</td>
+                    <td>_</td>
+                    <td>A text message indicating that the user info was updated </td>
+                  </tr>
+                  <tr>
+                    <td>Allow users to add a movie to their list of favorites</td>
+                    <td>/user/[Name]/fav_movies/[MovieID]</td>
+                    <td>POST</td>
+                    <td>_</td>
+                    <td>A JESON file with a MovieID</td>
+                  </tr>
+                  <tr>
+                    <td>Allow users to remove a movie from their list of favorites</td>
+                    <td>user/[name]/fav_movies/[MovieID]</td>
+                    <td>DELETE</td>
+                    <td>_</td>
+                    <td>A text message indicate that movie was successfully removed</td>
+                  </tr> 
+                  <tr>
+                    <td>Allow existing users to deregister </td>
+                    <td>/user/[Name]</td>
+                    <td>DELETE</td>
+                    <td>_</td>
+                    <td>A text message indicating that the user has been successfully deregister </td>
+                  </tr>
+              </tbody>
+            <table/>
     </body>
 </html>  
+
+
