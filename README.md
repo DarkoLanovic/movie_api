@@ -6,6 +6,11 @@ Movie API for managing movie database
 
 ### Endpoints
 
+/movies/movie/[title]
+/movies/movie/genre/[name]
+/movies/movie/director/[name]
+/users/[username]
+
 ### Dependencies
 
 - "body-parser": "^1.19.0",

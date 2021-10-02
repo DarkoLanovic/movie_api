@@ -1,9 +1,9 @@
-{
+module.exports = {
     username: "jondoe",
     password: "password",
     favMovies: [
         {
-            title: "Casablanca",
+            title: "African Queen",
             actors: "...",
             image: "https://media2.fdncms.com/clevescene/imager/u/original/12193952/casablanca.jpg",
             genre : {
