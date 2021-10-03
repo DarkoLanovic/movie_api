@@ -8,6 +8,7 @@
        
         <h1>Documentation page</h1>
         <br>
+
             <table>
               <thead>
                 <tr>
@@ -18,6 +19,7 @@
                   <th>Response body data format</th>
                 </tr>
               <thead>
+
               <tbody>
                 <tr>
                   <td>Show list of ALL movies</td>
@@ -28,32 +30,37 @@
                 </tr>
                 <tr>
                   <td> Show data about a single movie by title</td> <br>
-                  <td>/movies/[Name]</td>
+                  <td>/movies/movie/[name]</td>
                   <td>GET</td>
                   <td>_</td>
                   <td>A JASON object holding data about a single movie, <br> contains movie ID, name, year, genre, <br> director, description and image 
                         <br>
-                        { <br>
-                            id: 1,<br>
-                            name: "Amadeus",<br>
-                            year: "1984"<br>
-                            genre: "Drama/History",<br>
-                            director: "Miloš Forman",<br>
-                            description: "Text",<br>
-                            image: <br>                        
-                        }
+                         { <br>
+                            title: "African Queen", <br>
+                            actors: "...", <br>
+                            image: "...", <br>
+                            genre : { <br>
+                                 name: "Romance", <br>
+                                 description: "....", <br>
+                            }, <br>
+                            director: { <br>
+                                name: "...", <br>
+                                description: "...", <br>
+                                image: "..." <br>
+                            }
+                         }
                   </td>
                 </tr>
                    <tr>
                   <td> Show movies by genre</td>
-                  <td>/movies/[Name]/[Genre]</td>
+                  <td>/movies/movie/genre/[name]</td>
                   <td>GET</td>
                   <td>_</td>
                   <td>A JASON object holding data about movie genre</td>
                 </tr>
                 <tr>
                    <td>Show data about a director by name</td>
-                   <td>/movies/[Name]/[Director]</td>
+                   <td>/movies/movie/director/[name]</td>
                    <td>GET</td>
                    <td>_</td>
                    <td>A JASON object holding data about a director by name,<br>contain bio, birth year, death year </td>
@@ -74,28 +81,66 @@
                   </tr>
                   <tr>
                     <td>Allow users to update their user info</td>
-                    <td>/user/[Name]</td>
+                    <td>/user/[username]</td>
                     <td>PUT</td>
                     <td>_</td>
                     <td>A text message indicating that the user info was updated </td>
                   </tr>
                   <tr>
                     <td>Allow users to add a movie to their list of favorites</td>
-                    <td>/user/[Name]/fav_movies/[MovieID]</td>
+                    <td>/user/username/favmovies/[Movie]</td>
                     <td>POST</td>
-                    <td>_</td>
-                    <td>A JESON file with a MovieID</td>
+                    <td>
+                        <br>
+                        username: "Name", <br>
+                        password: "password", <br>
+                        email: "...", <br>
+                        favMovies: [ <br>
+                            { <br>
+                                title: "African Queen", <br>
+                                actors: "...", <br>
+                                image: "...", <br>
+                                genre : { <br>
+                                    name: "Romance", <br>
+                                    description: "....", <br>
+                                }, <br>
+                                director: { <br>
+                                    name: "", <br>
+                                    description: "", <br>
+                                    imaage: "" <br>
+                                } <br>
+                            } <br>
+                    </td>
+                    <td>A JSON object holding data <br> about the user movie <br> that was added, including an ID:
+                        <br>
+                        <br>
+                        favMovies: [ <br>
+                            { <br>
+                                title: "African Queen", <br>
+                                actors: "...", <br>
+                                image: "...", <br>
+                                genre : { <br>
+                                    name: "Romance", <br>
+                                    description: "....", <br>
+                                }, <br>
+                                director: { <br>
+                                    name: "", <br>
+                                    description: "", <br>
+                                    imaage: "" <br>
+                                } <br>
+                            } <br>
+                    </td>
                   </tr>
                   <tr>
                     <td>Allow users to remove a movie from their list of favorites</td>
-                    <td>user/[name]/fav_movies/[MovieID]</td>
+                    <td>/user/username/favmovies/[MovieID]</td>
                     <td>DELETE</td>
                     <td>_</td>
                     <td>A text message indicate that movie was successfully removed</td>
                   </tr> 
                   <tr>
                     <td>Allow existing users to deregister </td>
-                    <td>/user/[Name]</td>
+                    <td>/user/[nameID]</td>
                     <td>DELETE</td>
                     <td>_</td>
                     <td>A text message indicating that the user has been successfully deregister </td>

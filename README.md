@@ -6,10 +6,14 @@ Movie API for managing movie database
 
 ### Endpoints
 
-/movies/movie/[title]
+/movies
+/movies/movie/[name]
 /movies/movie/genre/[name]
 /movies/movie/director/[name]
+/user
 /users/[username]
+/user/username/favmovies/[Movie]
+/user/username/favmovies/[MovieID]
 
 ### Dependencies
 
@@ -20,9 +24,8 @@ Movie API for managing movie database
 
 ### Tecnologies:
 
-- Mongo
-- Express
 - Node
+- Express
 
 **To run app**
 `npm start`

@@ -1,6 +1,8 @@
-module.exports = {
+module.exports = [
+    {
     username: "jondoe",
     password: "password",
+    email: "...",
     favMovies: [
         {
             title: "African Queen",
@@ -32,3 +34,4 @@ module.exports = {
 
     ]
 }
+]
