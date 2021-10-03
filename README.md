@@ -14,6 +14,7 @@ Movie API for managing movie database
 /users/[username]
 /user/username/favmovies/[Movie]
 /user/username/favmovies/[MovieID]
+/user/[nameID]
 
 ### Dependencies
 
