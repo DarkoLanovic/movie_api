@@ -36,6 +36,7 @@
                   <td>A JASON object holding data about a single movie, <br> contains movie ID, name, year, genre, <br> director, description and image 
                         <br>
                          { <br>
+                            id:1,
                             title: "African Queen", <br>
                             actors: "...", <br>
                             image: "...", <br>
@@ -88,7 +89,7 @@
                   </tr>
                   <tr>
                     <td>Allow users to add a movie to their list of favorites</td>
-                    <td>/user/username/favmovies/[Movie]</td>
+                    <td>/user/username/favMovies/[Movie]</td>
                     <td>POST</td>
                     <td>
                         <br>
@@ -97,6 +98,7 @@
                         email: "...", <br>
                         favMovies: [ <br>
                             { <br>
+                                id:1,
                                 title: "African Queen", <br>
                                 actors: "...", <br>
                                 image: "...", <br>
@@ -116,6 +118,7 @@
                         <br>
                         favMovies: [ <br>
                             { <br>
+                                id:1,
                                 title: "African Queen", <br>
                                 actors: "...", <br>
                                 image: "...", <br>
@@ -133,7 +136,7 @@
                   </tr>
                   <tr>
                     <td>Allow users to remove a movie from their list of favorites</td>
-                    <td>/user/username/favmovies/[MovieID]</td>
+                    <td>/user/username/favMovies/[MovieID]</td>
                     <td>DELETE</td>
                     <td>_</td>
                     <td>A text message indicate that movie was successfully removed</td>

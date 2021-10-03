@@ -5,6 +5,7 @@ module.exports = [
     email: "...",
     favMovies: [
         {
+            id:1,
             title: "Amadeus",
             actors: "...",
             image: "...",
@@ -19,6 +20,7 @@ module.exports = [
             }
         },
         {
+            id:2,
             title: "Citizen Kane",
             actors: "...",
             genre : {
@@ -32,6 +34,7 @@ module.exports = [
             }
         },
         {
+            id:3,
             title: "Raging Bull",
             actors: "...",
             genre : {
@@ -45,6 +48,7 @@ module.exports = [
             }
         },
         {
+            di:4,
             title: "Mean Streets",
             actors: "...",
             genre : {
@@ -58,6 +62,7 @@ module.exports = [
             }
         },
         {
+            id:5,
             title: "Once Upon a Time In America",
             actors: "...",
             genre : {
@@ -71,6 +76,7 @@ module.exports = [
             }
         },
         {
+            id:6,
             title: "Scent of a Woman",
             actors: "...",
             genre : {
@@ -84,6 +90,7 @@ module.exports = [
             }
         },
         {
+            id:7,
             title: "Reservoir Dogs",
             actors: "...",
             genre : {
@@ -97,6 +104,7 @@ module.exports = [
             }
         },
         {
+            id:8,
             title: "Casablanca",
             actors: "...",
             genre : {
@@ -110,6 +118,7 @@ module.exports = [
             }
         },
         {
+            id:9,
             title: "Casino",
             actors: "...",
             genre : {
@@ -123,6 +132,7 @@ module.exports = [
             }
         },
         {
+            id:10,
             title: "Taxi Driver",
             actors: "...",
             genre : {
