@@ -122,7 +122,7 @@ module.exports = [
             title: "Casino",
             actors: "...",
             genre : {
-                name: "Romance",
+                name: "...",
                 description: "....",
             },
             director: {
