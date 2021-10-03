@@ -1,37 +1,143 @@
 module.exports = [
     {
-    username: "jondoe",
+    username: "...",
     password: "password",
     email: "...",
     favMovies: [
         {
-            title: "African Queen",
+            title: "Amadeus",
             actors: "...",
-            image: "https://media2.fdncms.com/clevescene/imager/u/original/12193952/casablanca.jpg",
+            image: "...",
             genre : {
-                name: "Romance",
+                name: "...",
+                description: "...",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Citizen Kane",
+            actors: "...",
+            genre : {
+                name: "...",
                 description: "....",
             },
             director: {
-                name: "", 
-                description: "",
-                imaage: ""
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Raging Bull",
+            actors: "...",
+            genre : {
+                name: "...",
+                description: "....",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Mean Streets",
+            actors: "...",
+            genre : {
+                name: "...",
+                description: "....",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Once Upon a Time In America",
+            actors: "...",
+            genre : {
+                name: "...",
+                description: "....",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Scent of a Woman",
+            actors: "...",
+            genre : {
+                name: "...",
+                description: "....",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Reservoir Dogs",
+            actors: "...",
+            genre : {
+                name: "...",
+                description: "....",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
             }
         },
         {
             title: "Casablanca",
             actors: "...",
             genre : {
+                name: "...",
+                description: "....",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Casino",
+            actors: "...",
+            genre : {
                 name: "Romance",
                 description: "....",
             },
             director: {
-                name: "", 
-                description: "",
-                imaage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Curtiz_1928_portrait.jpg/440px-Curtiz_1928_portrait.jpg"
+                name: "...", 
+                description: "...",
+                imaage: "..."
+            }
+        },
+        {
+            title: "Taxi Driver",
+            actors: "...",
+            genre : {
+                name: "...",
+                description: "....",
+            },
+            director: {
+                name: "...", 
+                description: "...",
+                imaage: "..."
             }
         }
-
+    
     ]
 }
 ]
+
+
