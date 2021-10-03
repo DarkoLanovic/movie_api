@@ -1,10 +1,13 @@
 const express = require('express'),
-      morgan = require('morgan');
-const bodyParser = require("body-parser");
+      morgan = require('morgan'),
+      bodyParser = require("body-parser");
+
 const app = express();
-app.use(bodyParser())
-const data =  require("./data");
+app.use(bodyParser.json());
+
+const data = require("./data");
 console.log(data);
+
 app.use(morgan('common'));
 
 
@@ -21,9 +24,14 @@ app.get("/movies/movie/:title", (req, res)=> {
     res.json(data.favMovies.find(x => x.title ===  req.params.title))
 });
 
+
+
+
 app.get('/', (req, res) => {
     res.send('Welcome to the movie fan page!')
 });
+
+
 
 app.post('/users', (req, res) => {
     data.push(req.body);
