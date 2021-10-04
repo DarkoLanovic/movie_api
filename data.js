@@ -9,10 +9,7 @@ let users = [
                 title: "Amadeus",
                 actors: "...",
                 image: "...",
-                genre : {
-                    name: "...",
-                    description: "...",
-                },
+                genre : "...",
                 director: {
                     name: "...", 
                     description: "...",
@@ -31,7 +28,7 @@ let users = [
                 actors: "...",
                 image: "...",
                 genre : {
-                    name: "...",
+                    name: "t",
                     description: "...",
                 },
                 director: {
@@ -70,15 +67,8 @@ let movies = [
         title: "Amadeus",
         actors: "...",
         image: "...",
-        genre : {
-            name: "...",
-            description: "...",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        } 
+        genre: "a",
+        director: "A"
     },
     {
         title: "Citizen Kane",

@@ -27,6 +27,18 @@ app.get('/movies/title/:title', (req, res) => {
     res.json(movies.find((movie) =>
       { return movie.name === req.params.name }));
   });
+
+// Return data about a genre
+app.get('/movies/genre/:genre', (req, res) => {
+    res.json(movies.filter((movie) =>
+    { return movie.genre === req.params.genre}));
+});
+
+// Return data about a director by name
+app.get('/movies/director/:director', (req,res) => {
+    res.json(movies.filter((movie) => 
+    { return movie.director === req.params.director}));
+});
   
 
 
