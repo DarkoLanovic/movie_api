@@ -10,11 +10,7 @@ let users = [
                 actors: "...",
                 image: "...",
                 genre : "...",
-                director: {
-                    name: "...", 
-                    description: "...",
-                    imaage: "..."
-                }
+                director: "..."
             }] 
       },
       {
@@ -27,15 +23,8 @@ let users = [
                 title: "Citizen Kane",
                 actors: "...",
                 image: "...",
-                genre : {
-                    name: "t",
-                    description: "...",
-                },
-                director: {
-                    name: "...", 
-                    description: "...",
-                    imaage: "..."
-                }
+                genre : "...",
+                director: "..."
             }] 
       },
       {
@@ -48,15 +37,8 @@ let users = [
                 title: "Raging Bull",
                 actors: "...",
                 image: "...",
-                genre : {
-                    name: "...",
-                    description: "...",
-                },
-                director: {
-                    name: "...", 
-                    description: "...",
-                    imaage: "..."
-                }
+                genre : "...",
+                director: "..."
             }] 
       }
 ];
@@ -73,119 +55,56 @@ let movies = [
     {
         title: "Citizen Kane",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        } 
+        genre : "...",
+        director: "..."
     },
     {
         title: "Raging Bull",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     },
     {
         title: "Mean Streets",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     },
     {
         title: "Once Upon a Time In America",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     },
     {
         title: "Scent of a Woman",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     },
     {
         title: "Reservoir Dogs",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     },
     {
         title: "Casablanca",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     },
     {
         title: "Casino",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     },
     {
         title: "Taxi Driver",
         actors: "...",
-        genre : {
-            name: "...",
-            description: "....",
-        },
-        director: {
-            name: "...", 
-            description: "...",
-            imaage: "..."
-        }
+        genre : "...",
+        director: "..."
     }
 ];
       
