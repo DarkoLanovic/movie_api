@@ -2,19 +2,27 @@ const express = require('express'),
       morgan = require('morgan'),
       bodyParser = require("body-parser");
 
+const {movies,users} = require("./data");
+
 const app = express();
-app.use(bodyParser.json());
 
-const data = require("./data");
-console.log(data);
+app.use(express.json());
 
+// Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
 
+// Reguest for returning message
+app.get('/', (req, res) => {
+    res.send('Welcome to the movie fun page!');
+})
 
-
-app.post('/movies', (req, res) => {
-    res.json(data.favMovies);
+// Request for returning the JSAON movie data
+app.get('/movies', (req, res) => {
+    movies.push(req.body);
+    res.json(movies);
 });
+
+
 
 // app.delete("/movies/movie/:title", (req, res)=> {
 //     res.json(data.favMovies.filter(x => x.title !=  req.params.title))
@@ -25,14 +33,6 @@ app.post('/movies', (req, res) => {
 // });
 
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the movie fan page!')
-});
-
-app.post('/movi', (req, res) => {
-    data.push(req.body);
-    res.json(data);
-});
 
 app.use(express.static('public'));
 
