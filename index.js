@@ -43,13 +43,25 @@ app.get('/movies/director/:director', (req,res) => {
 // Get user by name
 app.get('/users/:fullname', (req, res) => {
     res.send(users);
-  });
+});
 
 // Allowing new users to register
-app.post('/users', (req, res) => {
+app.post('/users/register', (req, res) => { 
     users.push(req.body);
     res.send('Registeration Successful!');
-  });
+});
+
+// Allowing users to update their user info
+app.put('/users/update/:id', (req, res) => {
+    let userId = users.find((user) => user.id === req.params.id);
+    res.send('Changes made successfully!');
+});
+
+// Allowing users to add a movie to their list of favorite movies
+app.post('/users/addfav/:id', (req, res) => {
+    const userId = users.find((user) => user.id === req.params.id);
+    res.send('Movie was successfullu added!');
+});
 
 
 
@@ -57,13 +69,6 @@ app.post('/users', (req, res) => {
 
 
 
-// app.delete("/movies/movie/:title", (req, res)=> {
-//     res.json(data.favMovies.filter(x => x.title !=  req.params.title))
-// });
-
-// app.get("/movies/movie/:title", (req, res)=> {
-//     res.json(data.favMovies.find(x => x.title ===  req.params.title))
-// });
 
 
 

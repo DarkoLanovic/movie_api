@@ -59,18 +59,34 @@
                    <td>A JASON object holding data about a director by name,<br>contain bio, birth year, death year </td>
                 </tr>
                 <tr>
-                    <td>Allow new users to register</td>
-                    <td>/users</td>
-                    <td>PUT</td>
-                    <td>A JASON object holding data about user,<br>containing: name, password, email
-                        <br>
-                        { <br>
-                            id:1 <br>
-                            fullname: "STRING",<br>
-                            password: "SRTING",<br>
-                            email: "STRING",<br>
-                            favMovies:[] <br>
-                        }
+                  <td>Shaw user by name</td>
+                  <td>/users/:fullname</td>
+                  <td>PUT</td>
+                  <td>_</td>
+                  <td>A JASON object holding data about user <br>containing: id, fullname, password, email, favMovies 
+                    <br>
+                    { <br>
+                        id:1 <br>
+                        fullname: "STRING",<br>
+                        password: "SRTING",<br>
+                        email: "STRING",<br>
+                        favMovies:[] <br>
+                    }
+                  </td>
+                </tr>
+                <tr>
+                  <td>Allow new users to register</td>
+                  <td>/users/register</td>
+                  <td>PUT</td>
+                  <td>A JASON object holding data about user,<br>containing: id, fullname, password, email, favMovies
+                      <br>
+                      { <br>
+                          id:1 <br>
+                          fullname: "STRING",<br>
+                          password: "SRTING",<br>
+                          email: "STRING",<br>
+                          favMovies:[] <br>
+                      }
                     </td>
                     <td>A text message indicating whether the user was successfully added</td>
                   </tr>
