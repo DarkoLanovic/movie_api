@@ -60,17 +60,23 @@ app.put('/users/update/:id', (req, res) => {
 // Allowing users to add a movie to their list of favorite movies
 app.post('/users/addfav/:id', (req, res) => {
     const userId = users.find((user) => user.id === req.params.id);
-    res.send('Movie was successfullu added!');
+    res.send('Favorite Movie was successfullu added!');
 });
 
+// Allowing users to remove a movie from their list of favorites movies
+app.delete('/users/delfav/:id/:title', (req, res) => {
+    // const userId = users.find((user) => user.id === req.params.id);
+    // const fav = userId.favMovies.filter((movie) => movie.title != req.params.title);
+    // userId.favMovies = [fav];
+    // // res.send(userId);
+    res.send('Movie was successfully removed!');
+});
 
-
-  
-
-
-
-
-
+// Allowing existing users to deregister
+app.delete('/users/deregister/:id', (req, res) => {
+    users.filter((user) => user.id != req.params.id);
+    res.send('User was successfully deregister!');
+});
 
 app.use(express.static('public'));
 
