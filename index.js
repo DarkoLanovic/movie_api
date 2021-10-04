@@ -39,6 +39,20 @@ app.get('/movies/director/:director', (req,res) => {
     res.json(movies.filter((movie) => 
     { return movie.director === req.params.director}));
 });
+
+// Get user by name
+app.get('/users/:fullname', (req, res) => {
+    res.send(users);
+  });
+
+// Allowing new users to register
+app.post('/users', (req, res) => {
+    users.push(req.body);
+    res.send('Registeration Successful!');
+  });
+
+
+
   
 
 

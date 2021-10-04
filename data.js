@@ -1,7 +1,7 @@
 let users = [
     {
         id:1,
-        fullname: "...",
+        fullname: "U",
         pasword: "...",
         email: "...",
         favMovies: [
