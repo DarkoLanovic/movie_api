@@ -50,7 +50,7 @@ let movies = [
         actors: "...",
         image: "...",
         genre: "a",
-        director: "A"
+        director: ""
     },
     {
         title: "Citizen Kane",
@@ -62,7 +62,7 @@ let movies = [
         title: "Raging Bull",
         actors: "...",
         genre : "...",
-        director: "..."
+        director: "A"
     },
     {
         title: "Mean Streets",
