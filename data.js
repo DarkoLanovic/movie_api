@@ -56,13 +56,13 @@ let movies = [
         title: "Citizen Kane",
         actors: "...",
         genre : "...",
-        director: "..."
+        director: "A"
     },
     {
         title: "Raging Bull",
         actors: "...",
         genre : "...",
-        director: "A"
+        director: "..."
     },
     {
         title: "Mean Streets",
