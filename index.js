@@ -40,8 +40,8 @@ app.get('/movies/director/:director', (req,res) => {
     { return movie.director === req.params.director}));
 });
 
-// Get user by name
-app.get('/users/:fullname', (req, res) => {
+// Show all users
+app.get('/users/all', (req, res) => {
     res.send(users);
 });
 
