@@ -25,7 +25,7 @@ app.get('/movies', (req, res) => {
 // Returning data about single movie
 app.get('/movies/title/:title', (req, res) => {
     res.json(movies.find((movie) =>
-      { return movie.name === req.params.name }));
+      { return movie.title === req.params.title }));
   });
 
 // Return data about a genre
