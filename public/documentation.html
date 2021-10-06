@@ -59,6 +59,32 @@
                    <td>A JASON object holding data about a director by name,<br>contain bio, birth year, death year </td>
                 </tr>
                 <tr>
+                  <td>Show genre description</td>
+                  <td>/genres/:name</td>
+                  <td>GET</td>
+                  <td>_</td>
+                  <td> <br> A JASON object holding data about single genre
+                    <br>
+                    { <br>
+                      name: "comedy", <br>
+                      description: "Movie in which the main emphasis is on humor." <br>
+                    },
+                  </td>
+                </tr>
+                <tr>
+                  <td>Show director description</td>
+                  <td>/directors/:name</td>
+                  <td>GET</td>
+                  <td>_</td>
+                  <td> <br> A JASON object holding data about single director
+                    <br>
+                    { <br>
+                      name: "orson welles", <br>
+                      DOB: "1915-1985" <br>
+                    },
+                  </td>
+                </tr>
+                <tr>
                   <td>Shaw all users</td>
                   <td>/users/all</td>
                   <td>GET</td>

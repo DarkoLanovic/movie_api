@@ -143,23 +143,23 @@ const genres = [
 
 const directors = [
     {
-        name: "ORSON WELLES",
+        name: "orson welles",
         DOB: "1915-1985"
     },
     {
-        name: "MARTIN SCORSESE",
+        name: "martin scorsese",
         DOB: "1942"
     },
     {
-        name: "INGMAR BERGMAN",
+        name: "ingmar bergman",
         BOB: "1918-2007"
     },
     {
-        name: "STANLEY KUBRICK",
+        name: "stanley kubrick",
         DOB: "1928-1999"
     },
     {
-        name: "AKIRA KUROSAVA",
+        name: "akira kurosava",
         DOB: "1910-1998"
     }
 ];

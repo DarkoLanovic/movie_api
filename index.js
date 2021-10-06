@@ -49,7 +49,7 @@ app.get('/genres/:name', (req, res) => {
 // Return data about director
 app.get("/directors/:name", (req, res) => {
     res.json(directors.find((director) => 
-    {return director.name === req.params.director}));
+    {return director.name === req.params.name}));
 });
 
 // Show all users
