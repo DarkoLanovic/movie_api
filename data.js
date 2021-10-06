@@ -110,7 +110,7 @@ const movies = [
     }
 ];
 
-const genre = [
+const genres = [
     {
         name: "action",
         description: "Movie that typically include violence, extended fighting, physical feats, rescues and frantic chases"
@@ -167,7 +167,7 @@ const directors = [
 module.exports = {
     users,
     movies,
-    genre,
+    genres,
     directors
 }
 

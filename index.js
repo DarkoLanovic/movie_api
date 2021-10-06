@@ -40,6 +40,11 @@ app.get('/movies/director/:director', (req,res) => {
     { return movie.director === req.params.director}));
 });
 
+app.get('/genres', (req, res) => {
+    res.json(genres.filter((genre) => 
+    {return genre.name === req.params.name}));
+});
+
 // Show all users
 app.get('/users/all', (req, res) => {
     res.send(users);
