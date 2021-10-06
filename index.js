@@ -2,7 +2,7 @@ const express = require('express'),
       morgan = require('morgan'),
       bodyParser = require("body-parser");
 
-const {movies,users} = require("./data");
+const {movies,users,genres,directors} = require("./data");
 
 const app = express();
 
@@ -40,9 +40,16 @@ app.get('/movies/director/:director', (req,res) => {
     { return movie.director === req.params.director}));
 });
 
-app.get('/genres', (req, res) => {
-    res.json(genres.filter((genre) => 
+// Return data about genre
+app.get('/genres/:name', (req, res) => {
+    res.json(genres.find((genre) => 
     {return genre.name === req.params.name}));
+});
+
+// Return data about director
+app.get("/directors/:name", (req, res) => {
+    res.json(directors.find((director) => 
+    {return director.name === req.params.director}));
 });
 
 // Show all users
