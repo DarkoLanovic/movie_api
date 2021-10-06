@@ -143,14 +143,32 @@ const genre = [
 
 const directors = [
     {
-
+        name: "ORSON WELLES",
+        DOB: "1915-1985"
+    },
+    {
+        name: "MARTIN SCORSESE",
+        DOB: "1942"
+    },
+    {
+        name: "INGMAR BERGMAN",
+        BOB: "1918-2007"
+    },
+    {
+        name: "STANLEY KUBRICK",
+        DOB: "1928-1999"
+    },
+    {
+        name: "AKIRA KUROSAVA",
+        DOB: "1910-1998"
     }
-]
+];
       
 module.exports = {
     users,
     movies,
     genre,
+    directors
 }
 
 
