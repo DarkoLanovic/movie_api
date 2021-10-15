@@ -1,8 +1,14 @@
 const express = require('express'),
       morgan = require('morgan'),
-      bodyParser = require("body-parser");
+      bodyParser = require("body-parser"),
+      mongoose =require('mongoose');
 
 const {movies,users,genres,directors} = require("./data");
+
+// This will allow REST API to perform CRUD operations on MongoDB data
+const Models = require('./models.js');
+const Movies = Models.Movie;
+const Users = Models.User;
 
 const app = express();
 
@@ -10,6 +16,10 @@ app.use(bodyParser.json());
 
 // Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
+
+
+
+///////////// CRUD OPERATIONS STARTS /////////////
 
 // Reguest for returning message
 app.get('/', (req, res) => {
