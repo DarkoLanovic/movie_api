@@ -9,6 +9,8 @@ const {movies,users,genres,directors} = require("./data");
 const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
+// Allows Mongoose to connect to that database so it can perform CRUD operations on the documents it contains from within your REST API
+mongoose.connect('mongodb://localhost:27017/movie_apiDB', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const app = express();
 
