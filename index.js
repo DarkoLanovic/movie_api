@@ -71,10 +71,33 @@ app.get('/users/all', (req, res) => {
 });
 
 // Allowing new users to register
-app.post('/users/register', (req, res) => { 
-    users.push(req.body);
-    res.send('Registeration Successful!');
-});
+app.post('/users', (req, res) => { 
+    Users.findOne({ Username: req.body.Username})
+      .then((user) => {
+          if(user) {
+            return res.status(400).send(req.body.Username + 'already exist');
+          } else {
+              Users
+                .create({
+                    Username: req.body.Username,
+                    Password: req.body.Password,
+                    Email: req.body.Email,
+                    Birthday: req.body.Birthday
+                })
+                .then((user) =>{res.status(201).json(user) })
+                .catch((error) => {
+                    console.error(error);
+                    res.status(500).send('Error:' + error);
+                })
+          }
+
+      })
+      .catch((error) => {
+          console.error(error);
+          res.status(500).send('Error: ' + error);
+      });
+
+    });
 
 // Allowing users to update their user info
 app.put('/users/update/:id', (req, res) => {
