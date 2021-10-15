@@ -15,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/movie_apiDB', {useNewUrlParser: true
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
