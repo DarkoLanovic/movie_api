@@ -70,12 +70,14 @@ app.get('/users/all', (req, res) => {
     res.send(users);
 });
 
-// Allowing new users to register
+
+
+//  ALLOWIND NEW USER TO REGISTERAll
 app.post('/users', (req, res) => { 
     Users.findOne({ Username: req.body.Username})
       .then((user) => {
           if(user) {
-            return res.status(400).send(req.body.Username + 'already exist');
+            return res.status(400).send(req.body.Username + 'already exist! Try another name, please.');
           } else {
               Users
                 .create({
@@ -84,7 +86,7 @@ app.post('/users', (req, res) => {
                     Email: req.body.Email,
                     Birthday: req.body.Birthday
                 })
-                .then((user) =>{res.status(201).json(user) })
+                .then((user) => {res.status(201).json(user) })
                 .catch((error) => {
                     console.error(error);
                     res.status(500).send('Error:' + error);
@@ -98,6 +100,9 @@ app.post('/users', (req, res) => {
       });
 
     });
+
+
+
 
 // Allowing users to update their user info
 app.put('/users/update/:id', (req, res) => {
