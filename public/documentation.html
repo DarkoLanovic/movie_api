@@ -10,6 +10,8 @@
         <br>
 
             <table>
+
+              <!-- HEADER -->
               <thead>
                 <tr>
                   <th>Business Logic</th>
@@ -20,7 +22,10 @@
                 </tr>
               <thead>
 
+              <!-- BODY -->
               <tbody>
+
+                <!-- SHOW ALL "MOVIES" -->
                 <tr>
                   <td>Show list of ALL movies</td>
                   <td>/movies</td>
@@ -28,6 +33,8 @@
                   <td>_</td>
                   <td> <br> A JASON object holding data about all the movies</td>
                 </tr>
+
+                 <!-- SHOW DATA ABOUT SINGLE MOVIE BY TITLE -->
                 <tr>
                   <td> Show data about a single movie by title</td> <br>
                   <td>/movies/title/:title</td>
@@ -36,21 +43,34 @@
                   <td>A JASON object holding data about a single movie, <br> contains movie ID, name, year, genre, <br> director, description and image 
                         <br>
                          { <br>
-                            title: "African Queen", <br>
-                            actors: "...", <br>
-                            image: "...", <br>
-                            genre : "...", <br>
-                            director: "..." <br>
-                         } <br>
+                          Title: {type: String, require: true}, <br>
+                          Descrption: {type: String, require:true}, <br>
+                          Genre: { <br>
+                              Name: String, <br>
+                              Descrption: String <br>
+                          }, <br>
+                          Director: { <br>
+                              Name: String, <br>
+                              Bio: String, <br>
+                              Birth: Date, <br>
+                              Death: Date <br>
+                          }, <br>
+                          Actors: String, <br>
+                          ImagePath: String, <br>
+                          Reatured: Boolean <br>
                   </td>
                 </tr>
-                   <tr>
+                  
+                <!-- SHOW MOVIE BY "GENRE" -->
+                <tr>
                   <td> Show movies by genre</td>
                   <td>/movies/genre/:genre</td>
                   <td>GET</td>
                   <td>_</td>
                   <td>A JASON object holding data about movie genre</td>
                 </tr>
+                 
+                <!-- SHOW DATA ABOUT A "DIRECTOR" BY NAME -->
                 <tr>
                    <td>Show data about a director by name</td>
                    <td>/movies/director/:director</td>
@@ -58,6 +78,8 @@
                    <td>_</td>
                    <td>A JASON object holding data about a director by name,<br>contain bio, birth year, death year </td>
                 </tr>
+                
+                <!-- SGOW "GENRE" DESCRIPTION -->
                 <tr>
                   <td>Show genre description</td>
                   <td>/genres/:name</td>
@@ -68,9 +90,11 @@
                     { <br>
                       name: "comedy", <br>
                       description: "Movie in which the main emphasis is on humor." <br>
-                    },
+                    },<br>
                   </td>
                 </tr>
+                
+                <!-- SHOW "DIRECTOR" DESCRIPTION -->
                 <tr>
                   <td>Show director description</td>
                   <td>/directors/:name</td>
@@ -79,11 +103,18 @@
                   <td> <br> A JASON object holding data about single director
                     <br>
                     { <br>
-                      name: "orson welles", <br>
-                      DOB: "1915-1985" <br>
+                      Director: { <br>
+                        Name: String, <br>
+                        Bio: String, <br>
+                        Birth: Date, <br>
+                        Death: Date <br>
+                      }, <br>
                     },
                   </td>
                 </tr>
+                
+
+                <!-- SHOW ALL "USERS" -->
                 <tr>
                   <td>Shaw all users</td>
                   <td>/users/all</td>
@@ -92,20 +123,16 @@
                   <td>A JASON object holding data about user <br>containing: id, fullname, password, email, favMovies 
                     <br>
                     { <br>
-                        id:1 <br>
-                        fullname: "STRING",<br>
-                        password: "SRTING",<br>
-                        email: "STRING",<br>
-                        favMovies:[{ <br>
-                          title: "Amadeus", <br>
-                          actors: "...", <br>
-                          image: "...", <br>
-                          genre : "...", <br>
-                          director: "..." <br>
-                      }] <br>
-                    }
+                      Usrname: {type: String, require: true}, <br>
+                      Password: {type: String, require:true}, <br>
+                      Email: {type: String, require: true}, <br>
+                      Birthday: Date, <br>
+                      FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
+                    } <br>
                   </td>
                 </tr>
+                
+                <!-- ALLOW NEW "USER" TO REGISTER -->
                 <tr>
                   <td>Allow new users to register</td>
                   <td>/users/register</td>
@@ -113,15 +140,17 @@
                   <td>A JASON object holding data about user,<br>containing: id, fullname, password, email, favMovies
                       <br>
                       { <br>
-                          id:1 <br>
-                          fullname: "STRING",<br>
-                          password: "SRTING",<br>
-                          email: "STRING",<br>
-                          favMovies:[] <br>
-                      }
+                        Usrname: {type: String, require: true}, <br>
+                        Password: {type: String, require:true}, <br>
+                        Email: {type: String, require: true}, <br>
+                        Birthday: Date, <br>
+                        FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
+                      } <br>
                     </td>
                     <td>A text message indicating whether the user was successfully added</td>
                   </tr>
+
+                  <!-- ALLOW "USERS" TO UPDATE THEIR USER INFO -->
                   <tr>
                     <td>Allow users to update their user info</td>
                     <td>/users/update/:id</td>
@@ -129,55 +158,48 @@
                     <td>_</td>
                     <td>A text message indicating that the user info was updated </td>
                   </tr>
+
+                  <!-- ALLOW "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES" LIST-->
                   <tr>
-                    <td>Allow users to add a movie to their list of favorites</td>
+                    <td>Allow users to add a movie to their "Favorite Movies" list</td>
                     <td>/users/addfav/:id</td>
                     <td>POST</td>
                     <td>A JSON object holding <br> data about the movie to add, <br> structured like:
                         <br>
-                        id:1, <br>
-                        fullname: "Name", <br>
-                        password: "password", <br>
-                        email: "...", <br>
-                        favMovies: [ <br>
-                            { <br>
-                                title: "African Queen", <br>
-                                actors: "...", <br>
-                                image: "...", <br>
-                                genre : "..."  <br>
-                                director: "..." <br>
-                            } <br>
+                        Usrname: {type: String, require: true}, <br>
+                        Password: {type: String, require:true}, <br>
+                        Email: {type: String, require: true}, <br>
+                        Birthday: Date, <br>
+                        FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
                     </td>
                     <td>A JSON object holding data <br> about the user movie <br> that was added, including an ID:
                         <br>
-                        id:1, <br>
-                        fullname: "Name", <br>
-                        password: "password", <br>
-                        email: "...", <br>
-                        favMovies: [ <br>
-                            { <br>                              
-                                title: "African Queen", <br>
-                                actors: "...", <br>
-                                image: "...", <br>
-                                genre : "..." <br>
-                                director: "..." <br>
-                            } <br>
+                        Usrname: {type: String, require: true}, <br>
+                        Password: {type: String, require:true}, <br>
+                        Email: {type: String, require: true}, <br>
+                        Birthday: Date, <br>
+                        FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
                     </td>
                   </tr>
+
+                  <!-- ALLOW "USERS" TO REMOVE A MOVIE FROM THEIR "FAVORITE MOVIES" LIST -->
                   <tr>
                     <td>Allow users to remove a movie from their list of favorites</td>
                     <td>/users/delfav/:id/:title</td>
                     <td>DELETE</td>
                     <td>_</td>
                     <td>A text message indicate that movie was successfully removed</td>
-                  </tr> 
+                  </tr>
+
+                  <!-- ALLOW EXISTING "USER" TO DEREGISTER -->
                   <tr>
-                    <td>Allow existing users to deregister </td>
+                    <td>Allow existing user to deregister </td>
                     <td>/users/deregister/:id</td>
                     <td>DELETE</td>
                     <td>_</td>
                     <td>A text message indicating that the user has been successfully deregister </td>
                   </tr>
+
               </tbody>
             <table/>
     </body>
