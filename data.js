@@ -3,17 +3,11 @@ const { application } = require("express");
 const users = [
     {
         id:1,
-        fullname: "U",
-        pasword: "...",
-        email: "...",
-        favMovies: [
-            {
-                title: "Amadeus",
-                actors: "...",
-                image: "...",
-                genre : "...",
-                director: "..."
-            }] 
+        Usrname: {type: String, require: true},
+        Password: {type: String, require:true},
+        Email: {type: String, require: true},
+        Birthday: Date,
+        FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}]
       },
       {
         id:2,
