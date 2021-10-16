@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-// Creating the models(This will create collections called “db.movies” and “db.users” within the MongoDB)
-let Movie = mongoose.model('Movie', movieShema);
-let User = mongoose.model('User', userShema);
 
 
 let movieShema = mongoose.Schema({
@@ -14,9 +11,11 @@ let movieShema = mongoose.Schema({
     },
     Director: {
         Name: String,
-        Bio: String
+        Bio: String,
+        Birth: Date,
+        Death: Date
     },
-    Actors: [String],
+    Actors: String,
     ImagePath: String,
     Reatured: Boolean
 
@@ -29,6 +28,10 @@ let userShema = mongoose.Schema({
     Birthday: Date,
     FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}]
 });
+
+// Creating the models(This will create collections called “db.movies” and “db.users” within the MongoDB)
+let Movie = mongoose.model('Movie', movieShema);
+let User = mongoose.model('User', userShema);
 
 
 // EXPORTING THE MODELS
