@@ -154,7 +154,16 @@
                     <td>Allow users to update their user info</td>
                     <td>/users/update/:id</td>
                     <td>PUT</td>
-                    <td>_</td>
+                    <td> A JSON object with data about what data in the user document should be updated.
+                      <br>
+                      { <br>
+                        Usrname: {type: String, require: true}, <br>
+                        Password: {type: String, require:true}, <br>
+                        Email: {type: String, require: true}, <br>
+                        Birthday: Date, <br>
+                        FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
+                      } <br>
+                    </td>
                     <td>A text message indicating that the user info was updated </td>
                   </tr>
 
