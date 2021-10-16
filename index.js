@@ -67,11 +67,11 @@ app.get("/directors/:name", (req, res) => {
 
 
 
-// SHOW ALL USERS
-app.get('/users', (req, res) => {
-    Users.find()
-       .then((users) => {
-           res.status(201).json(users);
+// GET ALL USERS BY "Username"
+app.get('/users/:Username', (req, res) => {
+    Users.findOne({ Username: req.params.Username })
+       .then((user) => {
+           res.json(user);
        })
        .catch((err) => {
            console.error(err);
