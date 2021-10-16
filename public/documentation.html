@@ -45,11 +45,11 @@
                          { <br>
                           Title: {type: String, require: true}, <br>
                           Descrption: {type: String, require:true}, <br>
-                          Genre: { <br>
+                          Genre: <br> { <br>
                               Name: String, <br>
                               Descrption: String <br>
                           }, <br>
-                          Director: { <br>
+                          Director: <br> { <br>
                               Name: String, <br>
                               Bio: String, <br>
                               Birth: Date, <br>
@@ -58,6 +58,7 @@
                           Actors: String, <br>
                           ImagePath: String, <br>
                           Reatured: Boolean <br>
+                        } <br>
                   </td>
                 </tr>
                   
@@ -87,7 +88,7 @@
                   <td>_</td>
                   <td> <br> A JASON object holding data about single genre
                     <br>
-                    { <br>
+                    Genre <br> { <br>
                       name: "comedy", <br>
                       description: "Movie in which the main emphasis is on humor." <br>
                     },<br>
@@ -102,14 +103,12 @@
                   <td>_</td>
                   <td> <br> A JASON object holding data about single director
                     <br>
-                    { <br>
-                      Director: { <br>
+                      Director: <br> { <br>
                         Name: String, <br>
                         Bio: String, <br>
                         Birth: Date, <br>
                         Death: Date <br>
-                      }, <br>
-                    },
+                      } <br>
                   </td>
                 </tr>
                 
@@ -137,7 +136,7 @@
                   <td>Allow new users to register</td>
                   <td>/users/register</td>
                   <td>POST</td>
-                  <td>A JASON object holding data about user,<br>containing: id, fullname, password, email, favMovies
+                  <td>A JASON object holding data about user,<br>containing: id, fullname, password, email, favMovies:
                       <br>
                       { <br>
                         Usrname: {type: String, require: true}, <br>
@@ -164,21 +163,23 @@
                     <td>Allow users to add a movie to their "Favorite Movies" list</td>
                     <td>/users/addfav/:id</td>
                     <td>POST</td>
-                    <td>A JSON object holding <br> data about the movie to add, <br> structured like:
-                        <br>
+                    <td>A JSON object holding <br> data about the movie to add, <br> structured like: <br>
+                        { <br>
                         Usrname: {type: String, require: true}, <br>
                         Password: {type: String, require:true}, <br>
                         Email: {type: String, require: true}, <br>
                         Birthday: Date, <br>
                         FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
+                        } <br>
                     </td>
-                    <td>A JSON object holding data <br> about the user movie <br> that was added, including an ID:
-                        <br>
+                    <td>A JSON object holding data <br> about the user movie <br> that was added, including an ID: <br>
+                        { <br>
                         Usrname: {type: String, require: true}, <br>
                         Password: {type: String, require:true}, <br>
                         Email: {type: String, require: true}, <br>
                         Birthday: Date, <br>
                         FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
+                        } <br>
                     </td>
                   </tr>
 
