@@ -66,7 +66,6 @@ app.get("/directors/:name", (req, res) => {
 });
 
 
-
 // GET ALL USERS BY "Username"
 app.get('/users/:Username', (req, res) => {
     Users.findOne({ Username: req.params.Username })
@@ -78,8 +77,6 @@ app.get('/users/:Username', (req, res) => {
            res.status(500).send('Eror: ' + err);
        });
 });
-
-
 
 //  ALLOWIND NEW USER TO REGISTERAll
 
@@ -108,9 +105,6 @@ app.post('/users', (req, res) => {
         res.status(500).send('Error: ' + error);
       });
   });
-
-
-
 
 // Allowing users to update their user info
 app.put('/users/update/:id', (req, res) => {

@@ -2,40 +2,25 @@ const { application } = require("express");
 
 const users = [
     {
-        id:1,
-        Usrname: {type: String, require: true},
-        Password: {type: String, require:true},
-        Email: {type: String, require: true},
-        Birthday: Date,
-        FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}]
+        Usrname: "...",
+        Password: "...",
+        Email: "...",
+        Birthday: "...",
+        FavoriteMovies: []
       },
       {
-        id:2,
-        fullname: "...",
-        pasword: "...",
-        email: "...",
-        favMovies: [
-            {
-                title: "Citizen Kane",
-                actors: "...",
-                image: "...",
-                genre : "...",
-                director: "..."
-            }] 
+        Usrname: "...",
+        Password: "...",
+        Email: "...",
+        Birthday: "...",
+        FavoriteMovies: []
       },
       {
-        id:3,
-        fullname: "...",
-        pasword: "...",
-        email: "...",
-        favMovies: [
-            {
-                title: "Raging Bull",
-                actors: "...",
-                image: "...",
-                genre : "...",
-                director: "..."
-            }] 
+        Usrname: "...",
+        Password: "...",
+        Email: "...",
+        Birthday: "...",
+        FavoriteMovies: []
       }
 ];
 
@@ -43,64 +28,173 @@ const users = [
 const movies = [
     {
         title: "Amadeus",
-        actors: "...",
-        image: "...",
-        genre: "a",
-        director: ""
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Citizen Kane",
-        actors: "...",
-        genre : "...",
-        director: "A"
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Raging Bull",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Mean Streets",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Once Upon a Time In America",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Scent of a Woman",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Reservoir Dogs",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Casablanca",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Casino",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     },
     {
         title: "Taxi Driver",
-        actors: "...",
-        genre : "...",
-        director: "..."
+        Descrption: "...",
+        Genre: {
+            Name: "...",
+            Descrption: "..."
+        },
+        Director: {
+            Name: "...",
+            Bio: "...",
+            Birth: "...",
+            Death: "..."
+        },
+        Actors: "...",
+        ImagePath: "...",
+        Reatured: "..."
     }
 ];
 
