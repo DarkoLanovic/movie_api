@@ -116,10 +116,27 @@
                 <!-- SHOW ALL "USERS" -->
                 <tr>
                   <td>Shaw all users</td>
-                  <td>/users/all</td>
+                  <td>/users</td>
                   <td>GET</td>
                   <td>_</td>
                   <td>A JASON object holding data about user <br>containing: id, fullname, password, email, favMovies 
+                    <br>
+                    { <br>
+                      Usrname: {type: String, require: true}, <br>
+                      Password: {type: String, require:true}, <br>
+                      Email: {type: String, require: true}, <br>
+                      Birthday: Date, <br>
+                      FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}] <br>
+                    } <br>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Show a user by name</td>
+                  <td>/users/:Username</td>
+                  <td>GET</td>
+                  <td>_</td>
+                  <td>A JASON object holding data about one user by Username <br>containing: id, fullname, password, email, favMovies 
                     <br>
                     { <br>
                       Usrname: {type: String, require: true}, <br>
