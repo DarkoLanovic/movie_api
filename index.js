@@ -12,8 +12,9 @@ const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
-const Genres = Models.Genre;
-const Directors = Models.Director;
+const Genre = Models.Genre;
+const Director = Models.Genre;
+
 // Allows Mongoose to connect to database so it can perform CRUD operations on the documents it contains from within your REST API
 mongoose.connect('mongodb://localhost:27017/movie_apiDB', {
   useNewUrlParser: true, useUnifiedTopology: true});
@@ -30,7 +31,7 @@ app.use(morgan('common'));
 
 ///////////// CRUD OPERATIONS STARTS /////////////
 
-// Reguest for returning message
+// REQUEST FOR RETURNING MESSAGE
 app.get('/', (req, res) => {
     res.send('Welcome to the movie fun page!');
 })
@@ -42,12 +43,12 @@ app.get('/movies', (req, res) => {
         res.status(201).json(movies);
       })
       .catch((err) => {
-        console.error(err):
+        console.error(err);
         res.status(500).send('Error ' + err);
       });
 });
 
-// GET DATA ABOUT SINGLE MOVIE
+// GET DATA ABOUT SINGLE "MOVIE"
 app.get('/movies/:Title', (req, res) => {
   Movies.findOne({ Title: req.params.Title})
     .then((movie) => {
@@ -84,7 +85,7 @@ app.get("/director/:Name", (req, res) => {
     });
 });
 
-// GET ALL USERS
+// GET ALL "USERS"
 app.get('/users', (req, res) => {
   Users.find()
     .then((users) => {
@@ -108,7 +109,7 @@ app.get('/users/:Username', (req, res) => {
        });
 });
 
-//  ALLOWIND NEW USER TO REGISTERAll
+//  ALLOWIND NEW USER TO REGISTER All
 app.post('/users', (req, res) => {
     Users.findOne({ Username: req.body.Username })
       .then((user) => {
@@ -137,7 +138,7 @@ app.post('/users', (req, res) => {
 
 // ALLOW "USER" TO UPDATE THEIR USER INFO
 app.put('/users/:Username', (req, res) => {
-  Users.findOneAndUpdate({ Username: req:params.Username
+  Users.findOneAndUpdate({ Username: req.params.Username
   }, { $set:
         {
           Username:req.body.Username,
@@ -155,9 +156,6 @@ app.put('/users/:Username', (req, res) => {
           res.json(updatedUser);
         }
       });
-    
-    // let userId = users.find((user) => user.id === req.params.id);
-    // res.send('Changes made successfully!');
 });
 
 // ALLOWING "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES' LIST
@@ -177,7 +175,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
     });
 });
 
-// ALLOW "USERS" TO REMOVE A MOVIE FROM "FAVORITE MOVIES" LIST
+// ALLOW "USERS" TO REMOVE A MOVIE FROM THEIR "FAVORITE MOVIES" LIST
 app.delete('/users/:Username/movies/:MovieID', (req, res) => {
   Users.findByIdAndUpdate({ Username: req.params.Username},
     {
