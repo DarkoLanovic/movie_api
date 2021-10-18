@@ -2,16 +2,16 @@ const express = require('express'),
       morgan = require('morgan'),
       bodyParser = require("body-parser"),
       uuid = require('uuid'),
-      mongoose =require('mongoose');
+      mongoose = require('mongoose');
 
 
-const {movies,users,genres,directors} = require("./data");
+// const {movies,users,genres,directors} = require("./data");
 
 // This will allow REST API to perform CRUD operations on MongoDB data
-const Models = require('./models.js');
+const models = require('./models.js');
 
-const Movies = Models.Movie;
-const Users = Models.User;
+const Movies = models.Movie;
+const Users = models.User;
 
 
 // Allows Mongoose to connect to database so it can perform CRUD operations on the documents it contains from within your REST API
