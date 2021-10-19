@@ -23,6 +23,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+let auth = require('./auth')(app); // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
+
+const passport = require('passport');
+require('./passport');
+
 // Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
 
@@ -36,14 +41,14 @@ app.get('/', (req, res) => {
 })
 
 // GET ALL JASON MOVIES DATA
-app.get('/movies', (req, res) => {
-    Movies.findh()
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Movies.find()
       .then((movies) => {
         res.status(201).json(movies);
       })
       .catch((err) => {
-        console.error(err);
-        res.status(500).send('Error ' + err);
+        console.error(error);
+        res.status(500).send('Error ' + error);
       });
 });
 
