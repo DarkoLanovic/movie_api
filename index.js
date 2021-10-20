@@ -115,7 +115,7 @@ app.get('/users/:Username',  (req, res) => {
        });
 });
 
-//  ALLOWIND NEW USER TO REGISTER All
+//  ALLOWIND NEW USER TO REGISTER 
 
 app.post('/users', (req, res) => {
   Users.findOne({ Username: req.body.Username })
@@ -145,8 +145,8 @@ app.post('/users', (req, res) => {
 
 // ALLOW "USER" TO UPDATE THEIR USER INFO
 app.put('/users/:Username', (req, res) => {
-  Users.findOneAndUpdate({ Username: req.params.Username
-  }, { $set:
+  Users.findOneAndUpdate({ Username: req.params.Username}, 
+      { $set:
         {
           Username:req.body.Username,
           Password: req.body.Password,
