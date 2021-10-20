@@ -1,6 +1,5 @@
 const express = require('express'),
       morgan = require('morgan'),
-      bodyParser = require("body-parser"),
       uuid = require('uuid'),
       mongoose = require('mongoose');
 
@@ -14,10 +13,10 @@ const Movies = models.Movie;
 const Users = models.User;
 
 
-// Allows Mongoose to connect to database so it can perform CRUD operations on the documents it contains from within your REST API
+
 // mongoose.connect('mongodb://localhost:27017/movie_apiDB', {
 //   useNewUrlParser: true, useUnifiedTopology: true});
-
+// Allows Mongoose to connect to database so it can perform CRUD operations on the documents it contains from within your REST API
 mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_apiDB?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -104,7 +103,7 @@ app.get('/users', (req, res) => {
     });
 });
 
-// GET ALL USERS BY "Username"
+// GET USER BY "Username"
 app.get('/users/:Username',  (req, res) => {
     Users.findOne({ Username: req.params.Username })
        .then((user) => {
@@ -117,31 +116,32 @@ app.get('/users/:Username',  (req, res) => {
 });
 
 //  ALLOWIND NEW USER TO REGISTER All
+
 app.post('/users', (req, res) => {
-    Users.findOne({ Username: req.body.Username })
-      .then((user) => {
-        if (user) {
-          return res.status(400).send(req.body.Username + 'already exists');
-        } else {
-          Users
-            .create({
-              Username: req.body.Username,
-              Password: req.body.Password,
-              Email: req.body.Email,
-              Birthday: req.body.Birthday
-            })
-            .then((user) =>{res.status(201).json(user) })
-          .catch((error) => {
-            console.error(error);
-            res.status(500).send('Error: ' + error);
+  Users.findOne({ Username: req.body.Username })
+    .then((user) => {
+      if (user) {
+        return res.status(400).send(req.body.Username + 'already exists');
+      } else {
+        Users
+          .create({
+            Username: req.body.Username,
+            Password: req.body.Password,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday
           })
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).send('Error: ' + error);
-      });
-  });
+          .then((user) =>{res.status(201).json(user) })
+        .catch((error) => {
+          console.error(error);
+          res.status(500).send('Error: ' + error);
+        })
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
+});
 
 // ALLOW "USER" TO UPDATE THEIR USER INFO
 app.put('/users/:Username', (req, res) => {
