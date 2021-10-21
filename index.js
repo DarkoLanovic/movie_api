@@ -4,8 +4,6 @@ const express = require('express'),
       mongoose = require('mongoose');
 
 
-// const {movies,users,genres,directors} = require("./data");
-
 // This will allow REST API to perform CRUD operations on MongoDB data
 const models = require('./models.js');
 
@@ -13,10 +11,7 @@ const Movies = models.Movie;
 const Users = models.User;
 
 
-
-// mongoose.connect('mongodb://localhost:27017/movie_apiDB', {
-//   useNewUrlParser: true, useUnifiedTopology: true});
-// Allows Mongoose to connect to database so it can perform CRUD operations on the documents it contains from within your REST API
+// Allows Mongoose to connect to database(ONLINE MongoDB Compass - cluster) so it can perform CRUD operations on the documents it contains from within REST API
 mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_apiDB?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true});
 
