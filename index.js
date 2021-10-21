@@ -183,7 +183,7 @@ app.post('/users/:Username/FavoriteMovies/:_id', (req, res) => {
 });
 
 // ALLOW "USERS" TO REMOVE A MOVIE FROM THEIR "FAVORITE MOVIES" LIST
-app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+app.delete('/users/:Username/FavoriteMovies/:MovieID', (req, res) => {
   Users.findByIdAndUpdate({ Username: req.params.Username},
     {
       $pull: { FavoriteMovies: req.params.MovieID}
