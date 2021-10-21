@@ -18,7 +18,7 @@ mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_
   useNewUrlParser: true, useUnifiedTopology: true});
 
 
-  app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
