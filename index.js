@@ -3,6 +3,8 @@ const express = require('express'),
       uuid = require('uuid'),
       mongoose = require('mongoose');
 
+const app = express();
+
 
 // This will allow REST API to perform CRUD operations on MongoDB data
 const models = require('./models.js');
@@ -15,15 +17,16 @@ const Users = models.User;
 mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_apiDB?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true});
 
-const app = express();
 
-app.use(express.json());
+  app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// let auth = require('./auth')(app); // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
 
-// const passport = require('passport');
-// require('./passport');
+// The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
+ let auth = require('./auth')(app); 
+
+const passport = require('passport');
+require('./passport');
 
 // Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
