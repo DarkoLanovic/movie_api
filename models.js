@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 
 let movieShema = mongoose.Schema({
-    Title: {type: String, require: true},
-    Descrption: {type: String, require:true},
+    Title: {type: String, required: true},
+    Descrption: {type: String, required:true},
     Genre: {
         Name: String,
         Descrption: String
@@ -22,9 +22,9 @@ let movieShema = mongoose.Schema({
 });
 
 let userShema = mongoose.Schema({
-    Usrname: {type: String, require: true},
-    Password: {type: String, require:true},
-    Email: {type: String, require: true},
+    Username: {type: String, required: true},
+    Password: {type: String, required:true},
+    Email: {type: String, required: true},
     Birthday: Date,
     FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}]
 });

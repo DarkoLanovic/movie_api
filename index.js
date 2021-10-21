@@ -128,7 +128,7 @@ app.post('/users', (req, res) => {
             Username: req.body.Username,
             Password: req.body.Password,
             Email: req.body.Email,
-            Birthday: req.body.Birthday
+            Birthday: body.Birthday
           })
           .then((user) =>{res.status(201).json(user) })
         .catch((error) => {
@@ -166,10 +166,10 @@ app.put('/users/:Username', (req, res) => {
 });
 
 // ALLOWING "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES' LIST
-app.post('/users/:Username/movies/:MovieID', (req, res) => {
+app.post('/users/:Username/:_id', (req, res) => {
   Users.findByIdAndUpdate({ Username: req.params.Username},
     {
-      $push: { FavoriteMovies: req.params.MovieID}
+      $push: { FavoriteMovies: req.params._id}
     },
     { new: true },
     (err, updatedUser) => {
