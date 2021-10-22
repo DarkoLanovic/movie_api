@@ -165,10 +165,10 @@ app.put('/users/:Username',  (req, res) => {
 });
 
 // ALLOWING "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES' LIST
-app.post('/users/:Username/FavoriteMovies/:_id',  (req, res) => {
+app.post('/users/:Username/FavoriteMovies/:MovieID',  (req, res) => {
   Users.findByIdAndUpdate({ Username: req.params.Username},
     {
-      $push: { FavoriteMovies: req.params._id}
+      $push: { FavoriteMovies: req.params.MovieID}
     },
     { new: true },
     (err, updatedUser) => {
