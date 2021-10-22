@@ -21,6 +21,10 @@ mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// specifies that your app (defined elsewhere in the file by "const app = express();)" uses CORS
+const cors = require('cors');
+app.use(cors());
+
 
 // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
 //  let auth = require('./auth')(app); 
