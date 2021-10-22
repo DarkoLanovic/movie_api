@@ -186,12 +186,11 @@ app.post('/users/:Username/FavoriteMovies/:MovieID',  (req, res) => {
 });
 
 // ALLOW "USERS" TO REMOVE A MOVIE FROM THEIR "FAVORITE MOVIES" LIST
-app.delete('/users/:Username/FavoriteMovies/:_id',  (req, res) => {
-  Users.findByIdAndUpdate({ Username: req.params.Username},
-    {
-      $pull: { FavoriteMovies: req.params._id}
-    },
-    { new: true },
+app.delete('/users/:Username/FavoriteMovies/:MovieID',  (req, res) => {
+  Users.findOneAndUpdate(
+    {Username: req.params.Username},
+    {$pull: { FavoriteMovies: req.params.MovieID}},
+    {new: true},
     (err, updatedUser) => {
       if (err) {
         console.error(err);
@@ -222,10 +221,10 @@ app.delete('/users/:Username',  (req, res) => {
 
 app.use(express.static('public'));
 
-app.use((err, req, res, next) => {
-    console.log(err.stack);
-    res.status(500).send('Something is wrong!')
-});
+// app.use((err, req, res, next) => {
+//     console.log(err.stack);
+//     res.status(500).send('Something is wrong!')
+// });
 
 app.listen(7070, () => {
     console.log('Your app is listening on a port 7070.')
