@@ -27,10 +27,10 @@ app.use(express.urlencoded({extended: true}));
 
 
 // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
-//  let auth = require('./auth')(app); 
+ let auth = require('./auth')(app); 
 
-//  const passport = require('passport');
-//  require('./passport');
+ const passport = require('passport');
+  require('./passport');
 
 // Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
@@ -94,7 +94,7 @@ app.get("/director/:Name",  (req, res) => {
 });
 
 // GET ALL "USERS"
-app.get('/users',  (req, res) => {
+app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.find()
     .then((users) => {
       res.status(201).json(users);
