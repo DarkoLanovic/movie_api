@@ -25,7 +25,7 @@
               <!-- BODY -->
               <tbody>
 
-                <!-- SHOW ALL "MOVIES" -->
+                <!-- GET ALL JASON "MOVIE" DATA -->
                 <tr>
                   <td>Show list of ALL movies</td>
                   <td>/movies</td>
@@ -34,7 +34,7 @@
                   <td> <br> A JASON object holding data about all the movies</td>
                 </tr>
 
-                 <!-- SHOW DATA ABOUT SINGLE MOVIE BY TITLE -->
+                 <!--  GET DATA ABOUT SINGLE "MOVIE" -->
                 <tr>
                   <td> Show data about a single movie by title</td> <br>
                   <td>/movies/title/:title</td>
@@ -43,26 +43,25 @@
                   <td>A JASON object holding data about a single movie, <br> contains movie ID, name, year, genre, <br> director, description and image 
                         <br>
                          { <br>
-                          Title: {type: String, require: true}, <br>
-                          Descrption: {type: String, require:true}, <br>
+                          Title: "Citizen Kane", <br>
+                          Descrption: "When a reporter is assigned to decipher <br> newspaper magnate Charles Foster Kane's <br> dying words, his investigation gradually reveals <br> the fascinating portrait of a complex man <br> who rose from obscurity to staggering heights. <br> Though Kane's friend and colleague Jedediah Leland, <br> and his mistress, Susan Alexander, <br> shed fragments of light on Kane's life, <br> the reporter fears he may never penetrate <br> the mystery of the elusive man's final word, Rosebud.", <br>
                           Genre: <br> { <br>
-                              Name: String, <br>
-                              Descrption: String <br>
+                              Name: "Drama", <br>
+                              Descrption:  "Drama is a category of narrative fiction intended to be more serious than humorous in tone."<br>
                           }, <br>
                           Director: <br> { <br>
-                              Name: String, <br>
-                              Bio: String, <br>
-                              Birth: Date, <br>
-                              Death: Date <br>
+                              Name: "Orson Welles", <br>
+                              Bio: " George Orson Welles was an American director, actor, screenwriter and producer <br> who is remembered for his innovative work in radio, theatre and film. <br> He is considered to be among the greatest and most influential <br> filmmakers of all time.", <br>
+                              Birth: "1915-05-06", <br>
+                              Death: "1985-10-10" <br>
                           }, <br>
-                          Actors: String, <br>
                           ImagePath: String, <br>
-                          Reatured: Boolean <br>
+                          Featured: true <br>
                         } <br>
                   </td>
                 </tr>
                   
-                <!-- SHOW MOVIE BY "GENRE" -->
+                <!-- GET DATA ABOUT A MOVIE "GENRE" -->
                 <tr>
                   <td> Show movies by genre</td>
                   <td>/movies/genre/:genre</td>
@@ -71,7 +70,7 @@
                   <td>A JASON object holding data about movie genre</td>
                 </tr>
                  
-                <!-- SHOW DATA ABOUT A "DIRECTOR" BY NAME -->
+                <!-- GET DATA ABOUT SPECIFIC "DIRECTOT" -->
                 <tr>
                    <td>Show data about a director by name</td>
                    <td>/movies/director/:director</td>
@@ -79,41 +78,9 @@
                    <td>_</td>
                    <td>A JASON object holding data about a director by name,<br>contain bio, birth year, death year </td>
                 </tr>
-                
-                <!-- SGOW "GENRE" DESCRIPTION -->
-                <tr>
-                  <td>Show genre description</td>
-                  <td>/genres/:name</td>
-                  <td>GET</td>
-                  <td>_</td>
-                  <td> <br> A JASON object holding data about single genre
-                    <br>
-                    Genre <br> { <br>
-                      name: "comedy", <br>
-                      description: "Movie in which the main emphasis is on humor." <br>
-                    },<br>
-                  </td>
-                </tr>
-                
-                <!-- SHOW "DIRECTOR" DESCRIPTION -->
-                <tr>
-                  <td>Show director description</td>
-                  <td>/directors/:name</td>
-                  <td>GET</td>
-                  <td>_</td>
-                  <td> <br> A JASON object holding data about single director
-                    <br>
-                      Director: <br> { <br>
-                        Name: String, <br>
-                        Bio: String, <br>
-                        Birth: Date, <br>
-                        Death: Date <br>
-                      } <br>
-                  </td>
-                </tr>
-                
 
-                <!-- SHOW ALL "USERS" -->
+
+                <!-- GET ALL "USERS" -->
                 <tr>
                   <td>Shaw all users</td>
                   <td>/users</td>
@@ -131,6 +98,7 @@
                   </td>
                 </tr>
 
+                <!-- // GET USER BY "Username" -->
                 <tr>
                   <td>Show a user by name</td>
                   <td>/users/:Username</td>
@@ -148,7 +116,7 @@
                   </td>
                 </tr>
                 
-                <!-- ALLOW NEW "USER" TO REGISTER -->
+                <!-- ALLOWIND NEW USER TO REGISTER   -->
                 <tr>
                   <td>Allow new users to register</td>
                   <td>/users/register</td>
@@ -166,7 +134,7 @@
                     <td>A text message indicating whether the user was successfully added</td>
                   </tr>
 
-                  <!-- ALLOW "USERS" TO UPDATE THEIR USER INFO -->
+                  <!-- ALLOW "USER" TO UPDATE THEIR USER INFO -->
                   <tr>
                     <td>Allow users to update their user info</td>
                     <td>/users/update/:id</td>
@@ -184,7 +152,7 @@
                     <td>A text message indicating that the user info was updated </td>
                   </tr>
 
-                  <!-- ALLOW "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES" LIST-->
+                  <!-- ALLOW "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES' LIST -->
                   <tr>
                     <td>Allow users to add a movie to their "Favorite Movies" list</td>
                     <td>/users/addfav/:id</td>
@@ -209,7 +177,7 @@
                     </td>
                   </tr>
 
-                  <!-- ALLOW "USERS" TO REMOVE A MOVIE FROM THEIR "FAVORITE MOVIES" LIST -->
+                  <!--  ALLOW "USERS" TO REMOVE A MOVIE FROM THEIR "FAVORITE MOVIES" LIST -->
                   <tr>
                     <td>Allow users to remove a movie from their list of favorites</td>
                     <td>/users/delfav/:id/:title</td>
@@ -218,7 +186,7 @@
                     <td>A text message indicate that movie was successfully removed</td>
                   </tr>
 
-                  <!-- ALLOW EXISTING "USER" TO DEREGISTER -->
+                  <!--  ALLOW EXISTING USER TO DEREGISTER -->
                   <tr>
                     <td>Allow existing user to deregister </td>
                     <td>/users/deregister/:id</td>
