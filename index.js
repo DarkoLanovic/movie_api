@@ -21,9 +21,9 @@ mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// specifies that your app (defined elsewhere in the file by "const app = express();)" uses CORS
-const cors = require('cors');
-app.use(cors());
+// // specifies that your app (defined elsewhere in the file by "const app = express();)" uses CORS
+// const cors = require('cors');
+// app.use(cors());
 
 
 // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
@@ -170,7 +170,7 @@ app.put('/users/:Username',  (req, res) => {
 
 // ALLOWING "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES' LIST
 app.post('/users/:Username/FavoriteMovies/:MovieID',  (req, res) => {
-  Users.findByIdAndUpdate({ Username: req.params.Username},
+  Users.findOneAndUpdate({ Username: req.params.Username},
     {
       $push: { FavoriteMovies: req.params.MovieID}
     },
