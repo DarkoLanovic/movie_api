@@ -21,9 +21,9 @@ mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// // specifies that your app (defined elsewhere in the file by "const app = express();)" uses CORS
-// const cors = require('cors');
-// app.use(cors());
+// specifies that your app (defined elsewhere in the file by "const app = express();)" uses CORS
+const cors = require('cors');
+app.use(cors());
 
 
 // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
@@ -120,15 +120,17 @@ app.get('/users/:Username',  passport.authenticate('jwt', { session: false }), (
 //  ALLOWIND NEW USER TO REGISTER 
 
 app.post('/users',  (req, res) => {
-  Users.findOne({ Username: req.body.Username })
+  let hashedPassword = Users.hashPassword(req.body.Password);
+    Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.Username + 'already exists');
+        //If the user is found, send a response that it already exists
+        return res.status(400).send(req.body.Username + ' already exists');
       } else {
         Users
           .create({
             Username: req.body.Username,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday
           })
