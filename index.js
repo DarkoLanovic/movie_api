@@ -4,7 +4,7 @@ const express = require('express'),
       mongoose = require('mongoose'),
       { check, validationResult } = require('express-validator');
 
-      
+
 const app = express();
 
 
@@ -264,6 +264,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something is wrong!')
 });
 
-app.listen(7070, () => {
-    console.log('Your app is listening on a port 7070.')
-})
+const port = process.env.PORT || 7070;  // Allow port to change if necessary.
+app.listen(port, '0.0.0.0', () => {
+    console.log('Listening on Port ' + port);
+});
