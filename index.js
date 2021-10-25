@@ -4,6 +4,7 @@ const express = require('express'),
       mongoose = require('mongoose'),
       { check, validationResult } = require('express-validator');
 
+      
 const app = express();
 
 
@@ -28,9 +29,9 @@ app.use(cors());
 
 
 // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
- let auth = require('./auth')(app); 
+let auth = require('./auth')(app); 
 
- const passport = require('passport');
+const passport = require('passport');
   require('./passport');
 
 // Using the Morgan middleware library to log all requests
@@ -45,6 +46,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the movie fun page!');
 })
 
+
 // GET ALL JASON MOVIES DATA
 app.get('/movies',  passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.find()
@@ -57,6 +59,7 @@ app.get('/movies',  passport.authenticate('jwt', { session: false }), (req, res)
       });
 });
 
+
 // GET DATA ABOUT SINGLE "MOVIE"
 app.get('/movies/:Title',  passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ Title: req.params.Title})
@@ -68,6 +71,7 @@ app.get('/movies/:Title',  passport.authenticate('jwt', { session: false }), (re
       res.status(500).send('Error: ' +err);
     });
   });
+
 
 // GET DATA ABOUT A "GENRE"
 app.get('/genre/:Name',  passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -94,6 +98,7 @@ app.get("/director/:Name",  passport.authenticate('jwt', { session: false }), (r
     });
 });
 
+
 // GET ALL "USERS"
 app.get('/users',  passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.find()
@@ -105,6 +110,7 @@ app.get('/users',  passport.authenticate('jwt', { session: false }), (req, res) 
       res.status(500).send('Error: ' + err);
     });
 });
+
 
 // GET USER BY "Username"
 app.get('/users/:Username',  passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -118,10 +124,23 @@ app.get('/users/:Username',  passport.authenticate('jwt', { session: false }), (
        });
 });
 
-//  ALLOWIND NEW USER TO REGISTER 
 
-app.post('/users',  (req, res) => {
-  let hashedPassword = Users.hashPassword(req.body.Password);
+//  ALLOWIND NEW USER TO REGISTER 
+app.post('/users', 
+// Validation logic for request start here
+  [
+    check('Username', 'Username is required').isLength({min: 5}),
+    check('Username', 'Username contains non alphanumeric character - not allowed.').isAlphanumeric(),
+    check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to br valid').isEmail()
+  ], (req, res) => {
+     // Check the validation object for errors start here
+    let errors = validationResult(req);  
+    if (!errors.isEmpty()) {
+      return res.status(422). jeson({ errors: errors.array() });
+    }// Check the validation object for errors start here
+  //  Validation logic for request stop here
+    let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
     .then((user) => {
       if (user) {
@@ -150,7 +169,20 @@ app.post('/users',  (req, res) => {
 
 
 // ALLOW "USER" TO UPDATE THEIR USER INFO
-app.put('/users/:Username',  passport.authenticate('jwt', { session: false }), (req, res) => {
+app.put('/users/:Username', 
+// Validation logic for request start here
+[
+  check('Username', 'Username is required').isLength({min: 5}),
+  check('Username', 'Username contains non alphanumeric character - not allowed.').isAlphanumeric(),
+  check('Password', 'Password is required').not().isEmpty(),
+  check('Email', 'Email does not appear to br valid').isEmail()
+], passport.authenticate('jwt', { session: false }), (req, res) => {
+   // Check the validation object for errors start here
+  let errors = validationResult(req);  
+  if (!errors.isEmpty()) {
+    return res.status(422). jeson({ errors: errors.array() });
+  }// Check the validation object for errors start here
+//  Validation logic for request stop here
   Users.findOneAndUpdate({ Username: req.params.Username}, 
       { $set:
         {
@@ -171,6 +203,7 @@ app.put('/users/:Username',  passport.authenticate('jwt', { session: false }), (
       });
 });
 
+
 // ALLOWING "USERS" TO ADD A MOVIE TO THEIR "FAVORITE MOVIES' LIST
 app.post('/users/:Username/FavoriteMovies/:MovieID',  passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username},
@@ -188,6 +221,7 @@ app.post('/users/:Username/FavoriteMovies/:MovieID',  passport.authenticate('jwt
     });
 });
 
+
 // ALLOW "USERS" TO REMOVE A MOVIE FROM THEIR "FAVORITE MOVIES" LIST
 app.delete('/users/:Username/FavoriteMovies/:MovieID',  passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate(
@@ -203,6 +237,7 @@ app.delete('/users/:Username/FavoriteMovies/:MovieID',  passport.authenticate('j
       }
     });
 });
+
 
 // ALLOWING EXISTING USER TO DEREGISTER
 app.delete('/users/:Username',  passport.authenticate('jwt', { session: false }), (req, res) => {
