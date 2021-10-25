@@ -1,7 +1,8 @@
 const express = require('express'),
       morgan = require('morgan'),
       uuid = require('uuid'),
-      mongoose = require('mongoose');
+      mongoose = require('mongoose'),
+      { check, validationResult } = require('express-validator');
 
 const app = express();
 

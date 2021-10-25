@@ -34,6 +34,7 @@ userShema.statics.hashPassword = (password) => {
     return bcrypt.hashSync(password, 10);
 };
 
+// Instance method(validatePassword)
 userShema.methods.validatePassword = function(password) {
      return bcrypt.compareSync(password, this.Password);
 };
