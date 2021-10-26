@@ -16,7 +16,7 @@ const Users = models.User;
 
 
 // Allows Mongoose to connect to database(ONLINE MongoDB Compass - cluster) so it can perform CRUD operations on the documents it contains from within REST API
-mongoose.connect('mongodb+srv://admin:Bokelj88@cluster0.bj6o9.mongodb.net/movie_apiDB?retryWrites=true&w=majority', {
+mongoose.connect( process.env.CONNECTION_URI, {
   useNewUrlParser: true, useUnifiedTopology: true});
 
 
