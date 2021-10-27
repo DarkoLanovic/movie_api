@@ -7,14 +7,13 @@ Movie API for managing movie database
 ### Endpoints
 
 /movies
-/movies/movie/[name]
-/movies/movie/genre/[name]
-/movies/movie/director/[name]
-/user
+/movies/[title]
+/genre/[name]
+/director/[name]
+/users
 /users/[username]
-/user/username/favmovies/[Movie]
-/user/username/favmovies/[MovieID]
-/user/[nameID]
+/users/username/FavoriteMovies/[movieID]
+/user/username/favmovies/[movieID]
 
 ### Dependencies
 
@@ -31,10 +30,18 @@ Movie API for managing movie database
 -  "passport-local": "^1.0.0",
 -  "uuid": "^8.3.2"
 
+### devDependencies
+-  "eslint": "^7.32.0",
+-  "nodemon": "^2.0.14"
+
 ### Tecnologies:
 
 - Node
 - Express
+- MongoDB
+- Mongoose
+- MongoDB Compass
+- Heroku
 
 **To run app**
 `npm start`
