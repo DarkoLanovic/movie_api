@@ -42,7 +42,7 @@ app.use(morgan('common'));
 
 // REQUEST FOR RETURNING MESSAGE
 app.get('/', (req, res) => {
-    res.send('Welcome to the movie fun page!');
+    res.send('Welcome to the Visionary Filam Club fun page!');
 })
 
 
