@@ -7,7 +7,6 @@ const express = require('express'),
 
 const app = express();
 
-
 // This will allow REST API to perform CRUD operations on MongoDB data
 const models = require('./models.js');
 
