@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: true}));
 
 // specifies that your app (defined elsewhere in the file by "const app = express();)" uses CORS
 const cors = require('cors');
-app.use(cors());
+app.use(cors());  //Allow all origins using the middleware (app published on Heroku)
 
 
 // The "app" argument we are passing here ensures that Express is available in “auth.js” file as well.
