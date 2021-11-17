@@ -258,10 +258,10 @@ app.delete('/users/:Username',  passport.authenticate('jwt', { session: false })
 
 app.use(express.static('public'));
 
-app.use((err, req, res, next) => {
-    console.log(err.stack);
-    res.status(500).send('Something is wrong!')
-});
+// app.use((err, req, res, next) => {
+//     console.log(err.stack);
+//     res.status(500).send('Something is wrong!')
+// });
 
 const port = process.env.PORT || 7070;  // Allow port to change if necessary.
 app.listen(port, '0.0.0.0', () => {
