@@ -182,11 +182,12 @@ app.put('/users/:Username',
     return res.status(422). jeson({ errors: errors.array() });
   }// Check the validation object for errors start here
 //  Validation logic for request stop here
+let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOneAndUpdate({ Username: req.params.Username}, 
       { $set:
         {
           Username:req.body.Username,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday
         }
