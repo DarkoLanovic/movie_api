@@ -136,7 +136,7 @@ app.post('/users',
      // Check the validation object for errors start here
     let errors = validationResult(req);  
     if (!errors.isEmpty()) {
-      return res.status(422). jeson({ errors: errors.array() });
+      return res.status(422).json({ errors: errors.array() });
     }// Check the validation object for errors start here
   //  Validation logic for request stop here
     let hashedPassword = Users.hashPassword(req.body.Password);
