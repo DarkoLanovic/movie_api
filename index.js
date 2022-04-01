@@ -266,5 +266,5 @@ app.use(express.static('public'));
 
 const port = process.env.PORT || 7070;  // Allow port to change if necessary.
 app.listen(port, '0.0.0.0', () => {
-    console.log('Listening on Port ' + port);
+  console.log(`Listening on Port ${port}`);
 });
